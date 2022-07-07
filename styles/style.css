@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.loader{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.742) url('../imgs/Settings.gif') center center no-repeat;
+}
+
+.main-container{
+  max-width: calc(100% - 20%);
+  width: 100%;
+  margin: 0 auto;
+  padding: 55px 0;
+}
+
+.post-list{
+  margin: 40px 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post{
+  width: 100%;
+  height: 160px;
+  border: 1px solid rgba(0, 0, 0, 0.57);
+  padding: 25px 15px;
+  transition: .3s;
+  border-radius: 10px;
+}
+
+.post h1{
+  font-size: 18px;
+  line-height: 26px;
+  color: rgb(141, 153, 166);
+  margin-bottom: 25px;
+}
+
+.post h2{
+  max-width: 500px;
+  width: 100%;
+}
+
+.post:hover{
+  box-shadow: 0 0 16px 5px rgba(169, 169, 169, 0.315);
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.pagination-btn{
+  padding: 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(146, 123, 252, 0.367);
+}
+
+.active{
+  border: 1px solid blue;
+}
+
+.search-block{
+  display: flex;
+  justify-content: center;
+}
+
+.search-block input{
+  max-width: calc(100% - 40%);
+  width: 100%;
+  height: 45px;
+  padding-left: 16px;
+}
+
+.page-post{
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.post-body h1{
+  font-size: 35px;
+  line-height: 30px;
+  margin-bottom: 35px;
+}
+
+.post-bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-bottom button{
+  width: 210px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.189);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.post-bottom button:hover{
+  background: rgb(218, 18, 18);
+}
