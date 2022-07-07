@@ -27,7 +27,7 @@ function createPost(wrapper, item){
       <p>${item.body}</p>
     </div>
     <div class='post-bottom'>
-      <h2>by ${item.name}</h2>
+      <h2>by ${item.author}</h2>
       <a href="mailto:${item.email}">
         ${item.email}
       </a>
