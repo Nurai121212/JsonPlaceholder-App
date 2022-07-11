@@ -1,4 +1,4 @@
-import { getData, postUrl, usersUrl } from "./module.js";
+import { getData } from "./module.js";
 
 const preloader = document.querySelector('.loader');
 const posts_list = document.querySelector('.post-list');
@@ -105,10 +105,10 @@ async function renderData(){
   let current_page = 1;
   let rows = 5;
 
-  preloader.style.display = 'block';
-
   try{
-    const [users, posts] = await Promise.all([getData(usersUrl), getData(postUrl)]);
+    preloader.style.display = 'block';
+
+    const [users, posts] = await Promise.all([getData('/users'), getData('/posts')]);
     const res = filterById(users, posts);
   
     DisplayList(res, posts_list, rows, current_page);
@@ -121,7 +121,7 @@ async function renderData(){
       SearchPosts(res, value, current_page, rows)
     })
   }catch(e){
-    console.log(e);
+    console.error(e);
     search_input.disabled = true;
   }finally{
     preloader.style.display = 'none';

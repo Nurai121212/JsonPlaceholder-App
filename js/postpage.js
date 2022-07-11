@@ -1,4 +1,4 @@
-import { getData, usersUrl, postUrl, removeData} from "./module.js";
+import { getData, removeData} from "./module.js";
 
 const main = document.querySelector('.main-container');
 const preloader = document.querySelector('.loader');
@@ -9,7 +9,7 @@ const id = searchParams.get('post');
 async function deletePost(id, wrapper){
   preloader.style.display = 'block';
 
-  const res = await removeData(postUrl, id);
+  const res = await removeData('/posts', id);
   if(res.ok){
     wrapper.innerHTML = '<h1>Post has been deleted!</h1>';
   }
@@ -44,11 +44,11 @@ function createPost(wrapper, item){
 }
 
 async function renederData(){
-  preloader.style.display = 'block';
-
   try{
-    const post = await getData(postUrl + `/${id}`);
-    const author = await getData(usersUrl + `/${post.userId}`);
+    preloader.style.display = 'block';
+
+    const post = await getData('/posts' + `/${id}`);
+    const author = await getData('/users' + `/${post.userId}`);
 
     const result = {
       id: post.id,
@@ -60,7 +60,7 @@ async function renederData(){
 
     createPost(main, result);
   }catch(e){
-    console.log(e);
+    console.error(e);
     main.innerHTML = "<h1>Error</h1>"
   }finally{
     preloader.style.display = 'none';
